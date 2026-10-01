@@ -1,0 +1,634 @@
+/*! 
+ * Desenvolvedor: Henrique Silva
+ * Contato comercial: (11) 99981-4081
+ * Todos os direitos de desenvolvimento reservados.
+ */
+ /* Transição suave para toda a página */
+/* Efeito de fade suave ao carregar elementos */
+body {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* RESET E CONFIGURAÇÕES GERAIS */
+:root {
+    --primary-green: #0b2214;     /* Verde Escuro Principal */
+    --accent-green: #113820;      /* Variação de Verde para Badges/Diferenciais */
+    --light-bg: #f7f6f2;          /* Off-white de fundo (seções limpas) */
+    --text-dark: #222222;         /* Cor do Texto Principal */
+    --text-muted: #666666;        /* Cor do Texto Secundário/Descrições */
+    --whatsapp-color: #00a884;    /* Cor oficial do WhatsApp */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    background-color: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.container-fluid {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.text-center { text-align: center; }
+.text-white { color: #ffffff; }
+
+/* LAYOUT E GRIDS */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 50px;
+    align-items: center;
+}
+
+/* DISTRIBUIÇÃO DAS SEÇÕES */
+.section-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--accent-green);
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.section-badge::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background-color: var(--accent-green);
+}
+
+.section-badge.badge-light {
+    color: #ffffff;
+}
+.section-badge.badge-light::after {
+    background-color: #ffffff;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.6rem;
+    color: var(--primary-green);
+    line-height: 1.2;
+}
+
+/* BOTÕES REPLICADOS DO DESIGN */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-whatsapp {
+    background-color: var(--whatsapp-color);
+    color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+    background-color: #008f72;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 168, 132, 0.3);
+}
+
+.btn-tour {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.btn-tour:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-dark-tour {
+    background-color: var(--primary-green);
+    color: #ffffff;
+}
+
+.btn-dark-tour:hover {
+    background-color: var(--accent-green);
+    transform: translateY(-2px);
+}
+
+.btn-outline-dark {
+    border: 1px solid var(--primary-green);
+    color: var(--primary-green);
+    background: transparent;
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-green);
+    color: #ffffff;
+}
+
+/* NAVBAR */
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(90, 95, 92, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.logo-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.logo-subtitle {
+    font-size: 0.6rem;
+    letter-spacing: 3.5px;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 0.85;
+    transition: opacity 0.2s, border-bottom 0.2s;
+    padding-bottom: 5px;
+}
+
+.nav-menu a:hover {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* HERO SECTION */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url('assets/background-marina.webp') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.hero-container {
+    padding-top: 80px;
+}
+
+.hero-section h1 {
+    font-size: 4.5rem;
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.hero-tagline {
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 650px;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+.hero-tagline strong {
+    font-weight: 600;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    color: #ffffff;
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-12px) translateX(-50%); }
+    60% { transform: translateY(-6px) translateX(-50%); }
+}
+
+/* SEÇÃO SOBRE A MARINA */
+.sobre-section {
+    background-color: #ffffff;
+}
+
+.sobre-content p {
+    color: var(--text-muted);
+    margin-bottom: 22px;
+    font-size: 1.05rem;
+}
+
+.sobre-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+    object-fit: cover;
+}
+
+/* SEÇÃO EXPLORE */
+.explore-section {
+    background-color: var(--primary-green);
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.swiper-pagination-bullet {
+    background: #ffffff !important;
+    opacity: 0.35;
+    width: 9px;
+    height: 9px;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    transform: scale(1.25);
+}
+
+/* SEÇÃO TOUR VIRTUAL 360° */
+.tour-section {
+    background-color: var(--light-bg);
+}
+
+.tour-banner {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+}
+
+.tour-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* RECONSTRUÇÃO DO ICONE 360° ORIGINAL DO HENRIQUE */
+.badge-360 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -50%); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #413f3f; /* Tom de cinza escuro idêntico ao print */
+    font-size: 1.5rem;
+    pointer-events: none;
+}
+
+
+.badge-360 span {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    letter-spacing: -0.5px;
+}
+
+/* SEÇÃO DIFERENCIAIS */
+.diferenciais-section {
+    background-color: var(--light-bg);
+    border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.diferencial-item {
+    text-align: center;
+    padding: 10px;
+}
+
+.item-icon {
+    font-size: 2.2rem;
+    color: var(--accent-green);
+    margin-bottom: 20px;
+}
+
+.diferencial-item h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-green);
+}
+
+.diferencial-item p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* SEÇÃO LOCALIZAÇÃO CORRIGIDA */
+.localizacao-section {
+    background-color: #fdfbf7;
+}
+
+.grid-2-special {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    align-items: stretch;
+}
+
+.localizacao-content {
+    padding: 80px 12%;
+    background-color: #fdfbf7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.address-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+    color: var(--text-dark);
+}
+
+.address-box i {
+    font-size: 1.3rem;
+    color: var(--accent-green);
+    margin-top: 3px;
+}
+
+.address-box p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.map-container {
+    position: relative;
+    height: 500px;
+    width: 100%;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* FOOTER ORGANIZADO COM GRID PROFISSIONAL */
+.main-footer {
+    background-color: var(--primary-green);
+    color: #ffffff;
+    padding-top: 70px;
+    font-family: var(--font-sans);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 50px 20px;
+    display: grid;
+    grid-template-columns: 2.2fr 3.5fr 2fr 1.3fr;
+    gap: 40px;
+    align-items: start;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h4 {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-contact-list, .footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-contact-list li {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.footer-links-list a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+
+.footer-links-list a:hover { 
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.6rem;
+    opacity: 0.85;
+    transition: transform 0.2s ease, opacity 0.2s;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    transform: scale(1.12);
+    opacity: 1;
+}
+
+.footer-bottom {
+    padding: 25px 0;
+    font-size: 0.8rem;
+    opacity: 0.45;
+}
+
+/* BOTÃO FLUTUANTE WHATSAPP */
+.whatsapp-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp-color);
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.9rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+.whatsapp-floating:hover {
+    transform: scale(1.12);
+}
+
+/* RESPONSIVIDADE */
+@media(max-width: 1024px) {
+    .grid-2-special {
+        grid-template-columns: 1fr;
+    }
+    .localizacao-content {
+        padding: 60px 5%;
+    }
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media(max-width: 768px) {
+    .nav-menu { 
+        display: none;
+    }
+    .hero-section h1 { 
+        font-size: 3rem; 
+    }
+    .grid-2 { 
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .container {
+        padding: 50px 0;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .gallery-item {
+        height: 380px;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .footer-contact-list li {
+        white-space: normal;
+        word-break: break-all;
+    }
+}
