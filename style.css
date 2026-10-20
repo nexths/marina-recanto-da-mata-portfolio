@@ -660,4 +660,13 @@ h2 {
         white-space: normal;
         word-break: break-all;
     }
+
+    .hero-video {
+        width: 100% !important;
+        height: 100% !important;
+        min-width: 100% !important;
+        min-height: 100% !important;
+        object-fit: contain !important; /* Mostra o vídeo inteiro sem cortar as bordas */
+        object-position: center center !important;
+    }
 }
