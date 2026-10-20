@@ -624,10 +624,20 @@ h2 {
         box-shadow: none !important;
         border: none !important;
     }
+    /* ... */
+    .hero-video {
+        width: 100% !important;
+        height: 100% !important;
+        min-width: 100% !important;
+        min-height: 100% !important;
+        object-fit: cover !important; /* Mudei de 'contain' para 'cover' aqui */
+        object-position: center center !important;
+    }
+}
 
     /* Eleva ainda mais o texto para a área do céu/mata no celular */
     .hero-content-box {
-        padding: 170px 0 50px 0;
+        padding: 150px 0 50px 0;
     }
 
     .hero-section h1 { 
