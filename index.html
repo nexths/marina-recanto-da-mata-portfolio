@@ -3,7 +3,7 @@
 <head>
     <meta property="og:image" content="https://nexths.github.io/marina-recanto-da-mata-portfolio/assets/preview.webp" />
     <meta property="og:title" content="Marina Recanto da Mata" />
-    <meta property="og:description" content="Um refúgio de natureza e bem-estar à margens da represa." />
+    <meta property="og:description" content="Um refúgio de natureza e bem-estar às margens da represa." />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marina Recanto da Mata</title>
@@ -19,10 +19,6 @@
 
     <header class="main-header">
         <div class="container header-container">
-            <div class="logo">
-                <span class="logo-title">MARINA</span>
-                <span class="logo-subtitle">RECANTO DA MATA</span>
-            </div>
             <nav class="nav-menu">
                 <a href="#inicio">Início</a>
                 <a href="#sobre">Sobre</a>
@@ -35,34 +31,37 @@
     </header>
 
     <section id="inicio" class="hero-section">
-        <!-- Vídeo de fundo com variante para Celular e Desktop -->
+        <!-- Vídeo de fundo com variante mobile e desktop -->
         <video autoplay muted loop playsinline class="hero-video">
-            <!-- Se a tela for menor ou igual a 768px (Celular), carrega o vídeo vertical -->
             <source src="assets/videohero-mobile.mp4" media="(max-width: 768px)" type="video/mp4">
-            
-            <!-- Para telas maiores (Desktop), carrega o vídeo horizontal padrão -->
             <source src="assets/videohero.mp4" type="video/mp4">
-            
             Seu navegador não suporta vídeos em HTML5.
         </video>
 
-        <!-- Camada escura (Overlay) -->
+        <!-- Camada escura leve -->
         <div class="hero-overlay"></div>
 
-        <div class="container hero-container" style="position: relative; z-index: 3;">
-            <h1>Marina<br>Recanto da Mata</h1>
-            <p class="hero-tagline">Natureza, tranquilidade e <strong>experiências</strong> inesquecíveis às <strong>margens da represa.</strong></p>
-            
-            <div class="hero-buttons">
-                <a href="https://wa.me/5511988061272" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Reservar pelo WhatsApp
-                </a>
-                <a href="tour-marina-destino/index.html" target="_blank" class="btn btn-tour">
-                    <i class="fas fa-cube"></i> Iniciar Tour Virtual
-                </a>
+        <div class="container hero-container">
+            <div class="hero-content-box">
+                <!-- Bloco do texto posicionado no topo (área do céu/mata) -->
+                <div class="hero-text-top">
+                    <h1>Marina<br>Recanto da Mata</h1>
+                    <p class="hero-tagline">Natureza, tranquilidade e <strong>experiências</strong> inesquecíveis às <strong>margens da represa.</strong></p>
+                </div>
+                
+                <!-- Botões fixados na parte inferior -->
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5511988061272" target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Reservar pelo WhatsApp
+                    </a>
+                    <a href="tour-marina-destino/index.html" target="_blank" class="btn btn-tour">
+                        <i class="fas fa-cube"></i> Iniciar Tour Virtual
+                    </a>
+                </div>
             </div>
         </div>
-        <a href="#sobre" class="scroll-arrow" style="position: absolute; z-index: 3;">
+
+        <a href="#sobre" class="scroll-arrow">
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
@@ -81,7 +80,6 @@
         </div>
     </section>
 
-    <!-- SEÇÃO EXPLORE (CARROSSEL FULL WIDTH) -->
     <section id="estrutura" class="explore-section reveal">
         <div class="explore-header text-center">
             <span class="section-badge badge-light">EXPLORE</span>
@@ -188,7 +186,7 @@
                 <div class="diferencial-item">
                     <i class="fas fa-map-marker-alt item-icon"></i>
                     <h3>Fácil Acesso</h3>
-                    <p>Localização privilegiada e de fácil chegada.</p>
+                    <p>Localização privileged e de fácil chegada.</p>
                 </div>
                 <div class="diferencial-item">
                     <i class="fas fa-ship item-icon"></i>
@@ -272,10 +270,6 @@
             </p>
         </div>
     </footer>
-
-    <a href="https://wa.me/5511988061272" target="_blank" class="whatsapp-floating">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
