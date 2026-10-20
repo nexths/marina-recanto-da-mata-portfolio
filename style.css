@@ -3,8 +3,7 @@
  * Contato comercial: (11) 99981-4081
  * Todos os direitos de desenvolvimento reservados.
  */
- /* Transição suave para toda a página */
-/* Efeito de fade suave ao carregar elementos */
+
 body {
     animation: fadeIn 0.8s ease-in-out;
 }
@@ -16,12 +15,12 @@ body {
 
 /* RESET E CONFIGURAÇÕES GERAIS */
 :root {
-    --primary-green: #0b2214;     /* Verde Escuro Principal */
-    --accent-green: #113820;      /* Variação de Verde para Badges/Diferenciais */
-    --light-bg: #f7f6f2;          /* Off-white de fundo (seções limpas) */
-    --text-dark: #222222;         /* Cor do Texto Principal */
-    --text-muted: #666666;        /* Cor do Texto Secundário/Descrições */
-    --whatsapp-color: #00a884;    /* Cor oficial do WhatsApp */
+    --primary-green: #0b2214;
+    --accent-green: #113820;
+    --light-bg: #f7f6f2;
+    --text-dark: #222222;
+    --text-muted: #666666;
+    --whatsapp-color: #00a884;
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Montserrat', sans-serif;
 }
@@ -38,6 +37,7 @@ body {
     background-color: #ffffff;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -55,15 +55,7 @@ body {
 .text-center { text-align: center; }
 .text-white { color: #ffffff; }
 
-/* LAYOUT E GRIDS */
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 50px;
-    align-items: center;
-}
-
-/* DISTRIBUIÇÃO DAS SEÇÕES */
+/* TIPOGRAFIA E BADGES */
 .section-badge {
     display: inline-block;
     font-size: 0.75rem;
@@ -106,7 +98,7 @@ h2 {
     line-height: 1.2;
 }
 
-/* BOTÕES REPLICADOS DO DESIGN */
+/* BOTÕES */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -131,15 +123,15 @@ h2 {
 }
 
 .btn-tour {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #ffffff;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
 
 .btn-tour:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     border-color: #ffffff;
     transform: translateY(-2px);
 }
@@ -172,7 +164,7 @@ h2 {
     left: 0;
     width: 100%;
     z-index: 100;
-    background: rgba(90, 95, 92, 0.5);
+    background: rgba(11, 34, 20, 0.35);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -223,15 +215,43 @@ h2 {
     border-bottom: 2px solid #ffffff;
 }
 
-/* HERO SECTION */
+/* HERO SECTION COM VÍDEO NÍTIDO E SEM ASPECTO FOSCO */
 .hero-section {
     position: relative;
     height: 100vh;
     min-height: 700px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url('assets/background-marina.webp') no-repeat center center/cover;
     display: flex;
     align-items: center;
     color: #ffffff;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    z-index: 1;
+    /* Força renderização nítida no navegador evitando desfoque de escala */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    filter: saturate(1.05) contrast(1.05); /* Dá um leve toque de vivacidade nas cores do vídeo */
+}
+
+/* Overlay mais leve e transparente para o vídeo brilhar mais */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
+    z-index: 2;
 }
 
 .hero-container {
@@ -242,6 +262,7 @@ h2 {
     font-size: 4.5rem;
     line-height: 1.05;
     margin-bottom: 25px;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); /* Sombra suave para destacar o texto sem precisar escurecer o vídeo */
 }
 
 .hero-tagline {
@@ -250,6 +271,7 @@ h2 {
     max-width: 650px;
     margin-bottom: 40px;
     opacity: 0.95;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
 }
 
 .hero-tagline strong {
@@ -270,6 +292,7 @@ h2 {
     color: #ffffff;
     opacity: 0.8;
     animation: bounce 2s infinite;
+    z-index: 3;
 }
 
 @keyframes bounce {
@@ -297,9 +320,16 @@ h2 {
     object-fit: cover;
 }
 
-/* SEÇÃO EXPLORE */
+/* SEÇÃO EXPLORE (CARROSSEL FULL WIDTH FLUÍDO) */
 .explore-section {
     background-color: var(--primary-green);
+    padding: 80px 0;
+}
+
+.explore-header {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .swiper {
@@ -311,12 +341,13 @@ h2 {
 .swiper-slide {
     display: flex;
     justify-content: center;
+    padding: 0 10px;
 }
 
 .gallery-item {
     width: 100%;
-    height: 450px;
-    border-radius: 12px;
+    height: 340px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
@@ -363,7 +394,6 @@ h2 {
     display: block;
 }
 
-/* RECONSTRUÇÃO DO ICONE 360° ORIGINAL DO HENRIQUE */
 .badge-360 {
     position: absolute;
     top: 50%;
@@ -373,11 +403,10 @@ h2 {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    color: #413f3f; /* Tom de cinza escuro idêntico ao print */
+    color: #413f3f;
     font-size: 1.5rem;
     pointer-events: none;
 }
-
 
 .badge-360 span {
     font-size: 2rem;
@@ -423,7 +452,7 @@ h2 {
     line-height: 1.5;
 }
 
-/* SEÇÃO LOCALIZAÇÃO CORRIGIDA */
+/* SEÇÃO LOCALIZAÇÃO */
 .localizacao-section {
     background-color: #fdfbf7;
 }
@@ -474,7 +503,7 @@ h2 {
     display: block;
 }
 
-/* FOOTER ORGANIZADO COM GRID PROFISSIONAL */
+/* FOOTER */
 .main-footer {
     background-color: var(--primary-green);
     color: #ffffff;
@@ -621,7 +650,7 @@ h2 {
         justify-content: center;
     }
     .gallery-item {
-        height: 380px;
+        height: 280px;
     }
     .footer-container {
         grid-template-columns: 1fr;

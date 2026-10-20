@@ -1,26 +1,29 @@
-// Configuração do Carrossel (Swiper.js) para a Marina Recanto da Mata
+// Configuração do Carrossel Contínuo e Fluido (Swiper.js)
 const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,      // 1 foto por vez em dispositivos móveis
-    spaceBetween: 20,      // Espaçamento entre as fotos
-    loop: true,            // Carrossel infinito
+    slidesPerView: 2,
+    spaceBetween: 15,
+    loop: true,
+    speed: 5000, // Define a velocidade da transição contínua (quanto maior o número, mais suave e lento o movimento)
     autoplay: {
-        delay: 3500,       // Passa sozinho suavemente a cada 3.5 segundos
+        delay: 0, // Sem tempo de espera: o movimento começa imediatamente após carregar
         disableOnInteraction: false,
     },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,   // Torna os pontinhos brancos clicáveis
+    freeMode: {
+        enabled: true,
+        momentum: false,
     },
+    allowTouchMove: true, // Permite que o usuário arraste com o dedo ou mouse normalmente
     breakpoints: {
-        // Quando a tela for de computador (maior ou igual a 768px)
         768: {
-            slidesPerView: 3,  // Exibe 3 fotos simultâneas na horizontal
-            spaceBetween: 25,  // Espaço entre as fotos no desktop
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 5,
+            spaceBetween: 20,
         },
     },
 });
 
 // Ativa o efeito de Tela Cheia (Lightbox) nas imagens da galeria
-Fancybox.bind("[data-fancybox='galeria-marina']", {
-    // Configurações extras se necessárias no futuro
-});
+Fancybox.bind("[data-fancybox='galeria-marina']", {});

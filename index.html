@@ -35,8 +35,21 @@
     </header>
 
     <section id="inicio" class="hero-section">
-        <div class="hero-bg-zoom"></div>
-        <div class="container hero-container">
+        <!-- Vídeo de fundo com variante para Celular e Desktop -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <!-- Se a tela for menor ou igual a 768px (Celular), carrega o vídeo vertical -->
+            <source src="assets/videohero-mobile.mp4" media="(max-width: 768px)" type="video/mp4">
+            
+            <!-- Para telas maiores (Desktop), carrega o vídeo horizontal padrão -->
+            <source src="assets/videohero.mp4" type="video/mp4">
+            
+            Seu navegador não suporta vídeos em HTML5.
+        </video>
+
+        <!-- Camada escura (Overlay) -->
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-container" style="position: relative; z-index: 3;">
             <h1>Marina<br>Recanto da Mata</h1>
             <p class="hero-tagline">Natureza, tranquilidade e <strong>experiências</strong> inesquecíveis às <strong>margens da represa.</strong></p>
             
@@ -49,7 +62,7 @@
                 </a>
             </div>
         </div>
-        <a href="#sobre" class="scroll-arrow">
+        <a href="#sobre" class="scroll-arrow" style="position: absolute; z-index: 3;">
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
@@ -68,80 +81,67 @@
         </div>
     </section>
 
+    <!-- SEÇÃO EXPLORE (CARROSSEL FULL WIDTH) -->
     <section id="estrutura" class="explore-section reveal">
-        <div class="container text-center">
+        <div class="explore-header text-center">
             <span class="section-badge badge-light">EXPLORE</span>
             <h2 class="text-white">Conheça nossa Marina</h2>
-            
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria1_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria1_resultado.webp" alt="Estrutura 1">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria2_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria2_resultado.webp" alt="Estrutura 2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria3_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria3_resultado.webp" alt="Estrutura 3">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria4_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria4_resultado.webp" alt="Estrutura 4">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria5_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria5_resultado.webp" alt="Estrutura 5">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria6_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria6_resultado.webp" alt="Estrutura 6">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria7_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria7_resultado.webp" alt="Estrutura 7">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria8_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria8_resultado.webp" alt="Estrutura 8">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item">
-                            <a href="assets/galeria9_resultado.webp" data-fancybox="galeria-marina">
-                                <img src="assets/galeria9_resultado.webp" alt="Estrutura 9">
-                            </a>
-                        </div>
+        </div>
+        
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="gallery-item">
+                        <a href="assets/galeria1_resultado.webp" data-fancybox="galeria-marina">
+                            <img src="assets/galeria1_resultado.webp" alt="Estrutura 1">
+                        </a>
                     </div>
                 </div>
-                
-                <div class="swiper-pagination"></div>
+                <div class="swiper-slide">
+                    <div class="gallery-item">
+                        <a href="assets/galeria2_resultado.webp" data-fancybox="galeria-marina">
+                            <img src="assets/galeria2_resultado.webp" alt="Estrutura 2">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="gallery-item">
+                        <a href="assets/galeria3_resultado.webp" data-fancybox="galeria-marina">
+                            <img src="assets/galeria3_resultado.webp" alt="Estrutura 3">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="gallery-item">
+                        <a href="assets/galeria4_resultado.webp" data-fancybox="galeria-marina">
+                            <img src="assets/galeria4_resultado.webp" alt="Estrutura 4">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="gallery-item">
+                        <a href="assets/galeria6_resultado.webp" data-fancybox="galeria-marina">
+                            <img src="assets/galeria6_resultado.webp" alt="Estrutura 6">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="gallery-item">
+                        <a href="assets/galeria7_resultado.webp" data-fancybox="galeria-marina">
+                            <img src="assets/galeria7_resultado.webp" alt="Estrutura 7">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="gallery-item">
+                        <a href="assets/galeria8_resultado.webp" data-fancybox="galeria-marina">
+                            <img src="assets/galeria8_resultado.webp" alt="Estrutura 8">
+                        </a>
+                    </div>
+                </div>
             </div>
+            
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
