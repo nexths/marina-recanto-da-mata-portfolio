@@ -1,23 +1,17 @@
-/*! 
+/*!
  * Desenvolvedor: TrendLocal SEO
  * Contato comercial: (11) 99981-4081
  * Todos os direitos de desenvolvimento reservados.
  */
 
-body {
-    animation: fadeIn 0.8s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* RESET E CONFIGURAÇÕES GERAIS */
+/* =========================================================
+   VARIÁVEIS E RESET
+   ========================================================= */
 :root {
     --primary-green: #0b2214;
     --accent-green: #113820;
     --light-bg: #f7f6f2;
+    --cream-bg: #fdfbf7;
     --text-dark: #222222;
     --text-muted: #666666;
     --whatsapp-color: #00a884;
@@ -38,6 +32,12 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .container {
@@ -52,10 +52,19 @@ body {
     margin: 0 auto;
 }
 
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
 .text-center { text-align: center; }
 .text-white { color: #ffffff; }
 
-/* TIPOGRAFIA E BADGES */
+/* =========================================================
+   TIPOGRAFIA E BADGES
+   ========================================================= */
 .section-badge {
     display: inline-block;
     font-size: 0.75rem;
@@ -80,6 +89,7 @@ body {
 .section-badge.badge-light {
     color: #ffffff;
 }
+
 .section-badge.badge-light::after {
     background-color: #ffffff;
     left: 50%;
@@ -98,7 +108,9 @@ h2 {
     line-height: 1.2;
 }
 
-/* BOTÕES */
+/* =========================================================
+   BOTÕES
+   ========================================================= */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -157,7 +169,9 @@ h2 {
     color: #ffffff;
 }
 
-/* NAVBAR DESKTOP ORIGINAL (COM TARJA DE VIDRO E LOGO) */
+/* =========================================================
+   HEADER E NAVEGAÇÃO
+   ========================================================= */
 .main-header {
     position: absolute;
     top: 0;
@@ -215,7 +229,9 @@ h2 {
     border-bottom: 2px solid #ffffff;
 }
 
-/* HERO SECTION DESKTOP ORIGINAL */
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -237,17 +253,13 @@ h2 {
     height: auto;
     object-fit: cover;
     z-index: 1;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     filter: saturate(1.05) contrast(1.05);
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
     z-index: 2;
 }
@@ -255,9 +267,6 @@ h2 {
 .hero-container {
     position: relative;
     z-index: 3;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
     height: 100%;
     display: flex;
     align-items: center;
@@ -269,7 +278,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 60px 0 60px 0; 
+    padding: 60px 0;
 }
 
 .hero-text-top {
@@ -318,7 +327,9 @@ h2 {
     60% { transform: translateY(-6px) translateX(-50%); }
 }
 
-/* SEÇÃO SOBRE A MARINA */
+/* =========================================================
+   SEÇÃO SOBRE
+   ========================================================= */
 .sobre-section {
     background-color: #ffffff;
 }
@@ -337,7 +348,9 @@ h2 {
     object-fit: cover;
 }
 
-/* SEÇÃO EXPLORE */
+/* =========================================================
+   SEÇÃO EXPLORE (CARROSSEL CONTÍNUO)
+   ========================================================= */
 .explore-section {
     background-color: var(--primary-green);
     padding: 80px 0;
@@ -353,6 +366,11 @@ h2 {
     width: 100%;
     padding-top: 40px;
     padding-bottom: 60px;
+}
+
+/* Mantém o movimento contínuo e fluido sem pausas entre slides */
+.swiper-wrapper {
+    transition-timing-function: linear !important;
 }
 
 .swiper-slide {
@@ -393,7 +411,9 @@ h2 {
     transform: scale(1.25);
 }
 
-/* SEÇÃO TOUR VIRTUAL 360° */
+/* =========================================================
+   SEÇÃO TOUR VIRTUAL
+   ========================================================= */
 .tour-section {
     background-color: var(--light-bg);
 }
@@ -415,7 +435,7 @@ h2 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-60%, -50%); 
+    transform: translate(-60%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -428,11 +448,12 @@ h2 {
 .badge-360 span {
     font-size: 2rem;
     font-weight: 600;
-    font-family: var(--font-sans);
     letter-spacing: -0.5px;
 }
 
-/* SEÇÃO DIFERENCIAIS */
+/* =========================================================
+   SEÇÃO DIFERENCIAIS
+   ========================================================= */
 .diferenciais-section {
     background-color: var(--light-bg);
     border-top: 1px solid rgba(0,0,0,0.04);
@@ -469,9 +490,11 @@ h2 {
     line-height: 1.5;
 }
 
-/* SEÇÃO LOCALIZAÇÃO */
+/* =========================================================
+   SEÇÃO LOCALIZAÇÃO
+   ========================================================= */
 .localizacao-section {
-    background-color: #fdfbf7;
+    background-color: var(--cream-bg);
 }
 
 .grid-2-special {
@@ -482,7 +505,7 @@ h2 {
 
 .localizacao-content {
     padding: 80px 12%;
-    background-color: #fdfbf7;
+    background-color: var(--cream-bg);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -520,18 +543,17 @@ h2 {
     display: block;
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 .main-footer {
     background-color: var(--primary-green);
     color: #ffffff;
     padding-top: 70px;
-    font-family: var(--font-sans);
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px 50px 20px;
+    padding: 0 20px 50px;
     display: grid;
     grid-template-columns: 2.2fr 3.5fr 2fr 1.3fr;
     gap: 40px;
@@ -553,10 +575,9 @@ h2 {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.footer-contact-list, .footer-links-list {
+.footer-contact-list,
+.footer-links-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -579,7 +600,7 @@ h2 {
     transition: opacity 0.2s;
 }
 
-.footer-links-list a:hover { 
+.footer-links-list a:hover {
     opacity: 1;
     text-decoration: underline;
 }
@@ -598,67 +619,80 @@ h2 {
 }
 
 .footer-bottom {
-    padding: 25px 0;
+    padding: 25px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom .copyright {
     font-size: 0.8rem;
-    opacity: 0.45;
+    opacity: 0.5;
+    margin: 0;
+}
+
+.footer-bottom .developer-credit {
+    margin-top: 8px;
+    font-size: 0.7rem;
+    opacity: 0.4;
+    letter-spacing: 0.5px;
+}
+
+.footer-bottom .developer-credit a {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: 500;
+    opacity: 0.8;
 }
 
 /* =========================================================
-   AJUSTES EXCLUSIVOS PARA CELULAR
+   RESPONSIVO (MOBILE <= 768px)
    ========================================================= */
-@media(max-width: 768px) {
-    .nav-menu { 
+@media (max-width: 768px) {
+    .container {
+        padding: 60px 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .nav-menu,
+    .logo {
         display: none;
     }
 
-    /* REMOVE A LOGO DO TOPO NO CELULAR (CONFORME PEDIDO) */
-    .logo {
-        display: none !important;
-    }
-
-    /* Topo 100% transparente no celular */
     .main-header {
-        background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        box-shadow: none !important;
-        border: none !important;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        border: none;
     }
 
     .header-container {
         padding: 10px 0;
     }
 
-    /* Vídeo preenchendo a tela inteira sem faixas brancas */
     .hero-video {
-        width: 100% !important;
-        height: 100% !important;
-        min-width: 100% !important;
-        min-height: 100% !important;
-        object-fit: cover !important;
-        object-position: center 52% !important;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 52%;
     }
 
     .hero-overlay {
         background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.42) 100%);
     }
 
-    /* Caixa do conteúdo da Hero para o celular */
     .hero-content-box {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 30px 0 40px 0 !important;
+        padding: 30px 0 40px;
     }
 
     .hero-text-top {
-        margin-top: 25px; /* Sobe levemente o texto (~10mm) */
+        margin-top: 25px;
     }
 
-    .hero-section h1 { 
-        font-size: 2.4rem; 
+    .hero-section h1 {
+        font-size: 2.4rem;
         margin-bottom: 8px;
     }
 
@@ -666,7 +700,6 @@ h2 {
         font-size: 0.95rem;
     }
 
-    /* Sobe os botões na mesma proporção para abrir espaço para o barco */
     .hero-buttons {
         flex-direction: column;
         gap: 10px;
@@ -680,13 +713,28 @@ h2 {
         padding: 12px 20px;
     }
 
-    .grid-2 { 
+    .grid-2 {
         grid-template-columns: 1fr;
         gap: 30px;
     }
 
     .gallery-item {
         height: 280px;
+    }
+
+    /* Seção Localização alinhada com a hierarquia da página */
+    .grid-2-special {
+        grid-template-columns: 1fr;
+    }
+
+    .localizacao-content {
+        width: 90%;
+        margin: 0 auto;
+        padding: 60px 0 40px;
+    }
+
+    .map-container {
+        height: 350px;
     }
 
     .footer-container {
@@ -696,6 +744,6 @@ h2 {
 
     .footer-contact-list li {
         white-space: normal;
-        word-break: break-all;
+        word-break: break-word;
     }
 }

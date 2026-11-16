@@ -1,18 +1,14 @@
-// Configuração do Carrossel Contínuo e Fluido (Swiper.js)
+// Carrossel contínuo e fluido (Swiper.js)
 const swiper = new Swiper(".mySwiper", {
     slidesPerView: 2,
     spaceBetween: 15,
     loop: true,
-    speed: 5000, // Define a velocidade da transição contínua (quanto maior o número, mais suave e lento o movimento)
+    speed: 5000,
     autoplay: {
-        delay: 0, // Sem tempo de espera: o movimento começa imediatamente após carregar
+        delay: 0,
         disableOnInteraction: false,
     },
-    freeMode: {
-        enabled: true,
-        momentum: false,
-    },
-    allowTouchMove: true, // Permite que o usuário arraste com o dedo ou mouse normalmente
+    allowTouchMove: true,
     breakpoints: {
         768: {
             slidesPerView: 4,
@@ -25,5 +21,22 @@ const swiper = new Swiper(".mySwiper", {
     },
 });
 
-// Ativa o efeito de Tela Cheia (Lightbox) nas imagens da galeria
+// Lightbox para as fotos da galeria
 Fancybox.bind("[data-fancybox='galeria-marina']", {});
+
+// Rolagem suave para links internos
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function (e) {
+        const target = document.querySelector(this.getAttribute("href"));
+        if (!target) return;
+
+        e.preventDefault();
+        const headerHeight = document.querySelector(".main-header").offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+        });
+    });
+});
