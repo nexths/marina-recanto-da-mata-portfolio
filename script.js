@@ -1,9 +1,9 @@
 // Carrossel contínuo e fluido (Swiper.js)
 const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 15,
+    slidesPerView: 1.25, // No mobile mostra 1 foto grande + a pontinha da próxima
+    spaceBetween: 12,
     loop: true,
-    speed: 5000,
+    speed: 6000,
     autoplay: {
         delay: 0,
         disableOnInteraction: false,
@@ -11,11 +11,11 @@ const swiper = new Swiper(".mySwiper", {
     allowTouchMove: true,
     breakpoints: {
         768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
+            slidesPerView: 2.5,
+            spaceBetween: 16,
         },
         1024: {
-            slidesPerView: 5,
+            slidesPerView: 3.2, // No desktop mostra 3 fotos grandes sem espremer
             spaceBetween: 20,
         },
     },
